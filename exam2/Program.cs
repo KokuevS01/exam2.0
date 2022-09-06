@@ -74,7 +74,7 @@ namespace Exam2
                 goto m;
             }
             
-            //345
+           
             {
                 string text = System.IO.File.ReadAllText(@"X:\ekz2\exam2\ex.txt");
 
