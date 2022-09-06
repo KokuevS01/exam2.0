@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -21,37 +21,42 @@ namespace Exam2
             Debug.WriteLine("Debug");   //Don't write Debug
             Console.ReadLine();
 
-        m: Console.WriteLine(" ");//ввод размерности
+        m: Console.WriteLine(" Введите сумму, которую желаете положить в банк на вклад от 0 до 1 млн. у.е. ");//ввод размерности
             int n = Int32.Parse(Console.ReadLine());
-            double[,] a = new double[n, n];//массив матрицы
-            double[] b = new double[n];//массив b
-            double[] x = new double[n];// массив корней
-
+            int[,] a = new int[n, n];//массив матрицы
+            int[] b = new int[n];//массив b
+            int[] x = new int[n];// массив корней
+            int pr;
+            int s = 8;
+            int k = 12;
+            int t = 1;
             for (int i = 0; i < n; i++)
                 x[i] = 0;
 
-            Console.WriteLine(" ");
+            Console.WriteLine(" Вводим максимально допустимую процентную ставку ");
             //введение коэфициентов матрицы
             for (int i = 0; i < n; i++)
                 for (int j = 0; j < n; j++)
                 {
                     Console.WriteLine($"Введите х{j + 1} => ");
-                    a[i, j] = double.Parse(Console.ReadLine());
+                    a[i, j] = int.Parse(Console.ReadLine());
                 }
-            Console.WriteLine(" ");
+            Console.WriteLine(" Вы положили в банк % у. е. ", x);
             //вывод
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
                 {
                     Console.Write($" {a[i, j]} ");
-
                 }
-                Console.Write(" " + b[i]);
+                Console.Write(" Вычисление процентной ставки ");
+                Console.Write(" Номинальная ставка будет равна 8%, срок капитализации равен 1 год. Количество капитализаций в год - 12. ");
                 Console.WriteLine();
+                pr = ((1 + s / (100 * k) ^ (k * t) - 1) * 100 / t); //формула для вычисления эффективной процентной ставки
+                Console.Write(" Эффективная процентная ставка равна %X ", pr);
             }
 
-            Console.WriteLine(" ");
+            Console.WriteLine(" Оптимальная сумма для вашего вклада будет равняться: ", b);
             for (int i = 0; i < n; i++)
             {
                 for (int j = 0; j < n; j++)
@@ -68,10 +73,10 @@ namespace Exam2
                 Console.Clear();//очистка
                 goto m;
             }
-
-
+            
+            //345
             {
-                string text = System.IO.File.ReadAllText(@"X:\экзамен\exam\Text.txt");
+                string text = System.IO.File.ReadAllText(@"X:\ekz2\exam2\ex.txt");
 
                 System.Console.WriteLine("Contents of Text.txt = {0}", text);
 
